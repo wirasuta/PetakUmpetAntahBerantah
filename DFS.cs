@@ -11,7 +11,10 @@ namespace PetakUmpetAntahBerantah{
                     found = true;
                     break;
                 }else{
-                    found = found || Search(G,current,vert,target);
+                    found = Search(G,current,vert,target);
+                    if (found){
+                        break;
+                    }
                 }
             }
             return found;
