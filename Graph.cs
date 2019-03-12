@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Stima{ 
+namespace PetakUmpetAntahBerantah{ 
     public class Graph{
         private List<int>[] adjList;
         private int n;
@@ -27,6 +27,9 @@ namespace Stima{
             foreach (string line in lines.Skip(1).ToArray()){
                 string[] vw = line.Split(' ');
                 addEdge(int.Parse(vw[0]),int.Parse(vw[1]));
+            }
+            for (int i = 0; i <= n; i++){
+                adjList[i].Sort();
             }
         }
         public void addEdge(int v, int w){

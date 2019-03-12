@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Stima{
+namespace PetakUmpetAntahBerantah{
     class Program{
         static void Main(string[] args)
         {
@@ -20,6 +20,9 @@ namespace Stima{
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("{0} :: {1}",5,DFS.Search(G1,0,4,5));
+            Console.WriteLine("{0} :: {1}",1,DFS.Search(G1,0,4,1));
+            Console.WriteLine("{0} :: {1}",9,DFS.Search(G1,0,4,9));
         }
     }
 }
