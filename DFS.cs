@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 
 namespace PetakUmpetAntahBerantah{
-    public static class DFS {
+    public static class Solver {
         private static bool[] visited;
         private static int time;
 
         public static void setDatangPergi(Graph G){
             time = 0;
-            n = G.getNodeCount() + 1;
-            visited = new bool[n];
+            int n = G.getNodeCount();
+            visited = new bool[n+1];
             for (int i = 0; i <= n; i++)
                 visited[i] = false;
             dfs(G, 1);

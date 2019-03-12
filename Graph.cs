@@ -76,7 +76,7 @@ namespace PetakUmpetAntahBerantah{
         public void print(){
             for (int i = 1; i <= getNodeCount(); i++){
                 List<int> adj = getAdjNodes(i);
-                Console.Write("{0} Arrival: {}-> ",i);
+                Console.Write("{0} Datang: {1} Pergi: {2} -> ",i,getDatang(i),getPergi(i));
                 foreach (int item in adj){
                     Console.Write("{0} ",item);
                 }
