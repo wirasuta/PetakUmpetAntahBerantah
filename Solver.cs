@@ -26,5 +26,14 @@ namespace PetakUmpetAntahBerantah{
                 G.setPergi(current, time);
             }
         }
+
+        public static bool solve(Graph g, int i, int a, int b){
+            if (i == 0){
+                a = a + b;
+                b = a - b;
+                a = a - b;
+            }
+            return ((g.getDatang(a) > g.getDatang(b)) && (g.getPergi(a) < g.getPergi(b)));
+        }
     }
 }
