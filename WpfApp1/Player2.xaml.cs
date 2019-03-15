@@ -31,8 +31,8 @@ namespace WpfApp1
         private void inputQuery(object sender, RoutedEventArgs e)
         {
             File.WriteAllText("C:\\Users\\x550\\source\\repos\\WpfApp1\\WpfApp1\\queryInput.txt", queryInput.Text);
-            //Player2 p = new Player2();
-            //((MainWindow)Application.Current.MainWindow).Content = p;
+            ShowGraph s = new ShowGraph();
+            ((MainWindow)Application.Current.MainWindow).Content = s;
         }
 
         private void bactToMain(object sender, RoutedEventArgs e)

@@ -62,6 +62,9 @@
     <Compile Include="Player2.xaml.cs">
       <DependentUpon>Player2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowGraph.xaml.cs">
+      <DependentUpon>ShowGraph.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Watcher.xaml.cs">
       <DependentUpon>Watcher.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Player2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowGraph.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
