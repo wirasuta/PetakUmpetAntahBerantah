@@ -13,9 +13,27 @@ namespace PetakUmpetAntahBerantah{
             }
             Graph G1 = new Graph(args[0]);
             Solver.setDatangPergi(G1);
-            G1.print();
-            Console.WriteLine("1 2 7 : {0}",Solver.solve(G1, 1, 2, 7));
-            Console.WriteLine("0 2 7 : {0}",Solver.solve(G1, 0, 2, 7));
+            List<int> path = new List<int>();
+            Console.WriteLine("1 6 1 : ");
+            path = Solver.solve(G1, 1, 6, 1);
+            if (path.Count > 0){
+                path.ForEach(v => {
+                    Console.Write("{0} ",v);
+                });
+                Console.WriteLine();
+            }else{
+                Console.WriteLine("No Path Found");
+            }
+            Console.WriteLine("1 4 1 : ");
+            path = Solver.solve(G1, 1, 4, 1);
+            if (path.Count > 0){
+                path.ForEach(v => {
+                    Console.Write("{0} ",v);
+                });
+                Console.WriteLine();
+            }else{
+                Console.WriteLine("No Path Found");
+            }
         }
     }
 }
