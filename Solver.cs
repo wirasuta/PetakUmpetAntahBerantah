@@ -34,7 +34,7 @@ namespace PetakUmpetAntahBerantah{
             }
         }
 
-        public static bool solve(Graph g, int i, int a, int b){
+        public static List<int> solve(Graph g, int i, int a, int b){
             // 1. 0 X Y : Ferdiant mulai bergerak dari Y menuju istana raja (berhenti ketika sampai di istana raja) dan
             //            Jose bersembunyi di alamat X
             // 2. 1 X Y : Ferdiant mulai bergerak dari Y menjauhi istana raja dan Jose bersembunyi di alamat X
@@ -44,7 +44,25 @@ namespace PetakUmpetAntahBerantah{
                 b = a - b;
                 a = a - b;
             }
-            return ((g.getNode(a).getDatang() > g.getNode(b).getDatang()) && (g.getNode(a).getPergi() < g.getNode(b).getPergi()));
+            List<int> path = new List<int>();
+            if ((g.getNode(a).getDatang() > g.getNode(b).getDatang()) && (g.getNode(a).getPergi() < g.getNode(b).getPergi())){
+                int posFerdiant = b;
+                int timeFerdiant = g.getNode(posFerdiant).getDatang();
+                int timeJose = g.getNode(a).getDatang();
+                while (timeFerdiant != timeJose){
+                    path.Add(posFerdiant);
+                    List<int> connectedVert = g.getNode(posFerdiant).getNeighbours();
+                    foreach (int vert in connectedVert){
+                        if ((i == 0 && g.getNode(vert).getDatang()<timeFerdiant) || (i == 1 && g.getNode(vert).getDatang()>timeFerdiant)){
+                            posFerdiant = vert;
+                            timeFerdiant = g.getNode(posFerdiant).getDatang();
+                            break;
+                        }
+                    }
+                }
+                path.Add(a);
+            }
+            return path;
         }
     }
 }
