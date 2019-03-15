@@ -14,7 +14,8 @@ namespace PetakUmpetAntahBerantah{
             Graph G1 = new Graph(args[0]);
             Solver.setDatangPergi(G1);
             G1.print();
-            Console.WriteLine("1 100000 3 : {0}",Solver.solve(G1, 1, 100000, 3));
+            Console.WriteLine("1 2 7 : {0}",Solver.solve(G1, 1, 2, 7));
+            Console.WriteLine("0 2 7 : {0}",Solver.solve(G1, 0, 2, 7));
         }
     }
 }
