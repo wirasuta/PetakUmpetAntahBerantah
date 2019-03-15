@@ -38,22 +38,22 @@ namespace PetakUmpetAntahBerantah{
             // 1. 0 X Y : Ferdiant mulai bergerak dari Y menuju istana raja (berhenti ketika sampai di istana raja) dan
             //            Jose bersembunyi di alamat X
             // 2. 1 X Y : Ferdiant mulai bergerak dari Y menjauhi istana raja dan Jose bersembunyi di alamat X
-            if (i == 0){
+            if (i == 1){
                 // Swap a, b
                 a = a + b;
                 b = a - b;
                 a = a - b;
             }
+            int posFerdiant = b;
+            int timeFerdiant = g.getNode(posFerdiant).getDatang();
+            int timeJose = g.getNode(a).getDatang();
             List<int> path = new List<int>();
-            if ((g.getNode(a).getDatang() > g.getNode(b).getDatang()) && (g.getNode(a).getPergi() < g.getNode(b).getPergi())){
-                int posFerdiant = b;
-                int timeFerdiant = g.getNode(posFerdiant).getDatang();
-                int timeJose = g.getNode(a).getDatang();
+            if ((g.getNode(a).getDatang() < g.getNode(b).getDatang()) && (g.getNode(a).getPergi() > g.getNode(b).getPergi())){
                 while (timeFerdiant != timeJose){
                     path.Add(posFerdiant);
                     List<int> connectedVert = g.getNode(posFerdiant).getNeighbours();
                     foreach (int vert in connectedVert){
-                        if ((i == 0 && g.getNode(vert).getDatang()<timeFerdiant) || (i == 1 && g.getNode(vert).getDatang()>timeFerdiant)){
+                        if (g.getNode(vert).getDatang()<timeFerdiant){
                             posFerdiant = vert;
                             timeFerdiant = g.getNode(posFerdiant).getDatang();
                             break;
@@ -62,6 +62,8 @@ namespace PetakUmpetAntahBerantah{
                 }
                 path.Add(a);
             }
+            if (i == 1)
+                path.Reverse();
             return path;
         }
     }
