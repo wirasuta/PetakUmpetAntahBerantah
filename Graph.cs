@@ -28,10 +28,10 @@ namespace PetakUmpetAntahBerantah{
             public void setY(int _y){
                 y = _y;
             }
-            public int getX(int _x){
+            public int getX(){
                 return x;
             }
-            public int getY(int _y){
+            public int getY(){
                 return y;
             }
             public void setDatang(int t){
@@ -59,8 +59,8 @@ namespace PetakUmpetAntahBerantah{
             nodes = new Node[n+1];
             for (int i = 0; i <= n; i++){
                 nodes[i] = new Node();
-                nodes[i].setX((i/5)*10);
-                nodes[i].setY((i%5)*10);
+                nodes[i].setX(0);
+                nodes[i].setY(0);
             }
         }
         public Graph(string filename){
@@ -70,8 +70,8 @@ namespace PetakUmpetAntahBerantah{
             nodes = new Node[n+1];
             for (int i = 0; i <= n; i++){
                 nodes[i] = new Node();
-                nodes[i].setX((i/5)*10);
-                nodes[i].setY((i%5)*10);
+                nodes[i].setX(0);
+                nodes[i].setY(0);
             }
             foreach (string line in lines.Skip(1).ToArray()){
                 string[] vw = line.Split(' ');
@@ -92,7 +92,7 @@ namespace PetakUmpetAntahBerantah{
         public void print(){
             for (int i = 1; i <= getNodeCount(); i++){
                 List<int> adj = getNode(i).getNeighbours();
-                Console.Write("{0} Datang: {1} Pergi: {2} -> ",i,getNode(i).getDatang(),getNode(i).getPergi());
+                Console.Write("{0} X: {1} Y: {2} -> ",i,getNode(i).getX(),getNode(i).getY());
                 foreach (int item in adj){
                     Console.Write("{0} ",item);
                 }
