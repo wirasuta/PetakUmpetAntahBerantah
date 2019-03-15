@@ -1,0 +1,17 @@
+﻿<Page x:Class="WpfApp1.ChooseOption"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      Title="MainWindow" Height="450" Width="800">
+
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="800" Height="450" Background="#FF151313">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="96" FontFamily="Bebas Neue Bold" Margin="10,84,10,220" Foreground="#FF25FDB8" Text="A R E  Y O U  A" Width="772" TextAlignment="Center"/>
+        <Button Content="WATCHER" HorizontalAlignment="Left" Height="85" Margin="135,236,0,0" VerticalAlignment="Top" Width="209" Foreground="#FFEA2A2A" Background="#FF151313" BorderBrush="#FFEA2A2A" BorderThickness="3" FontFamily="Bebas Neue Bold" FontSize="48" Click="AWatcher"/>
+        <Button Content="PLAYER" HorizontalAlignment="Left" Height="85" Margin="446,236,0,0" VerticalAlignment="Top" Width="209" FontFamily="Bebas Neue Bold" FontSize="48" Foreground="#FFFFDF16" Background="#FF151313" BorderThickness="3" BorderBrush="#FFFFDF16" Click="APlayer"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="OR" VerticalAlignment="Top" Height="35" Width="97" Margin="349,263,0,0" FontFamily="Bebas Neue Bold" FontSize="36" Foreground="#FF25FDB8" TextAlignment="Center"/>
+
+    </Grid>
+</Page>
