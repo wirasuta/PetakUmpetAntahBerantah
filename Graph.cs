@@ -79,34 +79,16 @@ namespace PetakUmpetAntahBerantah{
             nodes[v].addNeighbour(w);
             nodes[w].addNeighbour(v);
         }
-        //getter setter
-        //Prekondisi : v ada pada graph
-        public void setDatang(int v, int t){
-            nodes[v].setDatang(t);
-        }
-        public void setPergi(int v, int t){
-            nodes[v].setPergi(t);
-        }
-        public int getDatang(int v){
-            return nodes[v].getDatang();
-        }
-        public int getPergi(int v){
-            return nodes[v].getPergi();
-        }
         public int getNodeCount(){
             return n;
         }
-        public List<int> getAdjNodes(int v){
-            return nodes[v].getNeighbours();
-        }
-
         public Node getNode(int v){
             return nodes[v];
         }
         public void print(){
             for (int i = 1; i <= getNodeCount(); i++){
-                List<int> adj = getAdjNodes(i);
-                Console.Write("{0} Datang: {1} Pergi: {2} -> ",i,getDatang(i),getPergi(i));
+                List<int> adj = getNode(i).getNeighbours();
+                Console.Write("{0} Datang: {1} Pergi: {2} -> ",i,getNode(i).getDatang(),getNode(i).getPergi());
                 foreach (int item in adj){
                     Console.Write("{0} ",item);
                 }
