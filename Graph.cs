@@ -59,8 +59,8 @@ namespace PetakUmpetAntahBerantah{
             nodes = new Node[n+1];
             for (int i = 0; i <= n; i++){
                 nodes[i] = new Node();
-                nodes[i].setX(0);
-                nodes[i].setY(0);
+                nodes[i].setX(10);
+                nodes[i].setY(10);
             }
         }
         public Graph(string filename){
@@ -70,8 +70,8 @@ namespace PetakUmpetAntahBerantah{
             nodes = new Node[n+1];
             for (int i = 0; i <= n; i++){
                 nodes[i] = new Node();
-                nodes[i].setX(0);
-                nodes[i].setY(0);
+                nodes[i].setX(10);
+                nodes[i].setY(10);
             }
             foreach (string line in lines.Skip(1).ToArray()){
                 string[] vw = line.Split(' ');

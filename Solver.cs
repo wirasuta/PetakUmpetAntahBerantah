@@ -51,6 +51,8 @@ namespace PetakUmpetAntahBerantah{
             bool[] visited = new bool[n+1];
             for (int i = 0; i <= n; i++)
                 visited[i] = false;
+
+            //Untuk node yang terhubung dengan istana
             nodes.Enqueue(1);
             while(!(nodes.Count == 0)){
                 int top = nodes.Dequeue();
@@ -66,6 +68,15 @@ namespace PetakUmpetAntahBerantah{
                 foreach (int vert in connectedVert){
                     if(!visited[vert])
                         nodes.Enqueue(vert);
+                }
+            }
+
+            //Untuk node yang tidak terhubung dengan istana
+            x = 20;
+            for (int i=0; i<=n; i++){
+                if (!visited[i]){
+                    G.getNode(i).setX(x);
+                    x+= offsetx;
                 }
             }
         }
