@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PetakUmpetAntahBerantah{
     public static class Solver {
@@ -72,11 +73,11 @@ namespace PetakUmpetAntahBerantah{
             }
 
             //Untuk node yang tidak terhubung dengan istana
-            x = 20;
+            x = 10;
             for (int i=0; i<=n; i++){
                 if (!visited[i]){
-                    G.getNode(i).setX(x);
                     x+= offsetx;
+                    G.getNode(i).setX(x);
                 }
             }
         }
@@ -112,6 +113,22 @@ namespace PetakUmpetAntahBerantah{
             if (i == 1)
                 path.Reverse();
             return path;
+        }
+
+        public static List<int>[] solveFile(Graph G, string filename){
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            int n = int.Parse(lines[0]);
+            List<int>[] ret = new List<int>[n];
+            int i;
+            for (i = 0; i < n; i++){
+                ret[i] = new List<int>();
+            }
+            i = 0;
+            foreach (string line in lines.Skip(1).ToArray()){
+                string[] iab = line.Split(' ');
+                ret[i++] = solve(G, int.Parse(iab[0]),int.Parse(iab[1]),int.Parse(iab[2]));
+            }
+            return ret;
         }
     }
 }

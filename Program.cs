@@ -27,13 +27,10 @@ namespace PetakUmpetAntahBerantah{
             Solver.setAllX(G1);
 
             G1.print();
-            List<int> path = new List<int>();
-            Console.WriteLine("1 6 1 : ");
-            path = Solver.solve(G1, 1, 6, 1);
-            printPath(path);
-            Console.WriteLine("1 4 1 : ");
-            path = Solver.solve(G1, 1, 4, 1);
-            printPath(path);
+            List<int>[] paths = Solver.solveFile(G1,args[1]);
+            foreach (List<int> path in paths){
+                printPath(path);
+            }
         }
     }
 }
