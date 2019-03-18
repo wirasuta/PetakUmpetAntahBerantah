@@ -93,6 +93,7 @@ namespace WpfApp1
                 Canvas.SetLeft(nodeID, G1.getNode(i).getX() * 5 + 8);
                 Canvas.SetTop(nodeID, G1.getNode(i).getY() * 5);
                 nNode.Foreground = new SolidColorBrush(Colors.Black);
+
                 
 
                 if (G1.getNode(i).getNeighbours().Count != 0)
@@ -192,12 +193,24 @@ namespace WpfApp1
 
         void OnTimed(object sender, EventArgs e)
         {
+            TextBlock status = new TextBlock();
+            status.Height = 18;
+            status.Width = 213;
+            //cek.Text = watcherQuery[i].Count().ToString();
+            status.FontSize = 10;
+            Canvas.SetLeft(status, 400);
+            Canvas.SetTop(status, 30);
+            status.Foreground = new SolidColorBrush(Colors.LightGray);
+            //status.Foreground = 
+            W_Canvas.Children.Add(status);
+
             if (nQuery == watcherQuery.Length)
             {
                 timer.Stop();
             }
             else
             {
+                
                 if (nNode == 0)
                 {
                     foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
@@ -207,6 +220,11 @@ namespace WpfApp1
                 }
                 if (watcherQuery[nQuery].Count != 0)
                 {
+                   
+                    int queryLine = nQuery + 1;
+                    status.Text = "  STATUS: YES FOR QUERY #" + queryLine;
+                    status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
+                    status.Foreground = new SolidColorBrush(Colors.Green);
                     foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
                     {
                         string nodeName = "node" + watcherQuery[nQuery].ToArray()[nNode];
@@ -222,12 +240,18 @@ namespace WpfApp1
                         nNode = 0;
                         nQuery++;
                     }
+                    //status.Text = String.Empty;
 
                 }
                 else
                 {
+                    int queryLine = nQuery + 1;
+                    status.Text = "  STATUS: NO FOR QUERY #" + queryLine;
+                    status.Foreground = new SolidColorBrush(Colors.DarkRed);
+                    status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
                     nQuery++;
                 }
+                
             }
 
         }
