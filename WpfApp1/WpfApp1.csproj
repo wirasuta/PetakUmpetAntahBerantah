@@ -64,7 +64,7 @@
     <Compile Include="Player2.xaml.cs">
       <DependentUpon>Player2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <None Include="Program.cs" />
     <Compile Include="SelectGraph.xaml.cs">
       <DependentUpon>SelectGraph.xaml</DependentUpon>
     </Compile>

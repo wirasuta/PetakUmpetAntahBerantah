@@ -29,6 +29,7 @@ namespace WpfApp1
         public List<int>[] watcherQuery;
         public int nQuery;
         public int nNode;
+        public int time;
 
         private DispatcherTimer timer;
 
@@ -37,6 +38,7 @@ namespace WpfApp1
             graphFile = name;
             InitializeComponent();
             ShowTitle();
+            ShowDFS();
         }
 
         private void ShowTitle()
@@ -76,7 +78,7 @@ namespace WpfApp1
                 Ellipse graphNode = new Ellipse();
                 graphNode.Name = "node" + i;
                 graphNode.Stroke = System.Windows.Media.Brushes.Black;
-                graphNode.Fill = System.Windows.Media.Brushes.Red;
+                graphNode.Fill = System.Windows.Media.Brushes.LightGray;
                 graphNode.Width = 30;
                 graphNode.Height = 30;
 
@@ -124,6 +126,48 @@ namespace WpfApp1
             watcherGraph = G1;
         }
 
+        private void ShowDFS()
+        {
+            time = 1;
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.IsEnabled = true;
+            timer.Tick += DFSDatangPergi;
+        }
+
+        private void DFSDatangPergi(object sender, EventArgs e)
+        {
+            if (time > 2 * watcherGraph.getNodeCount())
+            {
+                timer.Stop();
+                timer.Tick -= DFSDatangPergi;
+            }
+            else
+            {
+                int idNode = watcherGraph.getNodeIdByDatang(time);
+                Brush newFill;
+                if (idNode != 0)
+                {
+                    newFill = System.Windows.Media.Brushes.Blue;
+                }
+                else
+                {
+                    idNode = watcherGraph.getNodeIdByPergi(time);
+                    newFill = System.Windows.Media.Brushes.Red;
+                }
+                string nodeName = "node" + idNode;
+                foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
+                {
+                    if (el.Name == nodeName)
+                    {
+                        el.Fill = newFill;
+                    }
+
+                }
+                time++;
+            }
+        }
+
         private void querySolution(object sender, RoutedEventArgs e)
         {
             queryFile = queryBox.Text;
@@ -131,67 +175,12 @@ namespace WpfApp1
             watcherQuery = Solver.solveFile(watcherGraph, queryFile);
             nQuery = 0;
             nNode = 0;
-            timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(1000);
-            timer.IsEnabled = true;
-            timer.Tick += OnTimed;
-
-            /*for (int i = 0; i < watcherQuery.Count(); i++)
-            {
-                if(watcherQuery[i].Count() != 0)
-                {
-                    //object path = W_Canvas.FindName("cekboi");
-
-                    //Ellipse el = (Ellipse)path;
-                    //el.Fill = System.Windows.Media.Brushes.Green;
-                    //Ellipse path = FindName("node1");
-                    for (int j = 0; j < watcherQuery[i].Count; j++)
-                    {
-                        foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
-                        {
-                            string nodeName = "node" + watcherQuery[i].ToArray()[j];
-                            if (el.Name == nodeName)
-                            {
-                                el.Fill = System.Windows.Media.Brushes.Green;
-
-                            }
-
-                        }
-                    }
-
-                }*/
-            /*foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
-            {
-                el.Fill = System.Windows.Media.Brushes.Red;
-            }*/
-
+            timer.Start();
+            timer.Tick += traverseSolution;
         }
 
-        /*for (int i = 0; i < watcherQuery.Count(); i++)
-        {
-            TextBlock cek = new TextBlock();
-            cek.Height = 50;
-            cek.Width = 200;
-            cek.Text = watcherQuery[i].Count().ToString();
-            cek.Text = ;
-            cek.FontSize = 10;
-            Canvas.SetLeft(cek, 350);
-            Canvas.SetTop(cek, (i+1)*10);
-            cek.Foreground = new SolidColorBrush(Colors.Black);
-            W_Canvas.Children.Add(cek);
-        }*/
-
-        /*TextBlock cek = new TextBlock();
-        cek.Height = 50;
-        cek.Width = 200;
-        cek.Text = watcherQuery.Count().ToString();
-        cek.FontSize = 10;
-        Canvas.SetLeft(cek, 350);
-        Canvas.SetTop(cek, 10);
-        cek.Foreground = new SolidColorBrush(Colors.Black);
-        W_Canvas.Children.Add(cek);*/
-
-        void OnTimed(object sender, EventArgs e)
+        void traverseSolution(object sender, EventArgs e)
         {
             TextBlock status = new TextBlock();
             status.Height = 18;
@@ -207,6 +196,7 @@ namespace WpfApp1
             if (nQuery == watcherQuery.Length)
             {
                 timer.Stop();
+                timer.Tick -= traverseSolution;
             }
             else
             {

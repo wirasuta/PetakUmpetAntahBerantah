@@ -89,6 +89,28 @@ namespace PetakUmpetAntahBerantah{
         public Node getNode(int v){
             return nodes[v];
         }
+        public int getNodeIdByDatang(int t)
+        {
+            for (int i = 1; i<=n; i++)
+            {
+                if (nodes[i].getDatang() == t)
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+        public int getNodeIdByPergi(int t)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                if (nodes[i].getPergi() == t)
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
         public void print(){
             for (int i = 1; i <= getNodeCount(); i++){
                 List<int> adj = getNode(i).getNeighbours();

@@ -14,7 +14,8 @@ namespace PetakUmpetAntahBerantah{
             }
         }
 
-        /*static void Main(string[] args)
+        /*
+        static void Main(string[] args)
         {
             if (args.Length == 0){
                 Console.WriteLine("Usage : dotnet run <filename>");
@@ -31,6 +32,7 @@ namespace PetakUmpetAntahBerantah{
             foreach (List<int> path in paths){
                 printPath(path);
             }
-        }*/
+        }
+        */
     }
 }
