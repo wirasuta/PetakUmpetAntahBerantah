@@ -1,0 +1,23 @@
+﻿<Page x:Class="WpfApp1.Player"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Player">
+
+    <Grid Background="White">
+        <TextBox x:Name="graphInput" HorizontalAlignment="Left" Height="177" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Margin="138,135,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Height="50" Margin="240,74,0,0" TextWrapping="Wrap" Text="INPUT YOUR GRAPH" VerticalAlignment="Top" Width="337" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
+        <Button x:Name="P_Main" Content="MAIN" HorizontalAlignment="Center" Height="31" Margin="302,361,399,0" VerticalAlignment="Top" Width="99" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFEEEEEE" BorderBrush="{x:Null}" Click="backToMain" Background="#FFFF1E1E"/>
+        <Button x:Name="P_Next" Content="NEXT" HorizontalAlignment="Center" Height="31" Margin="430,361,271,0" VerticalAlignment="Top" Width="99" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputGraph"/>
+
+        <!--<Slider Minimum="8" Maximum="96" x:Name="FontSlider" HorizontalAlignment="Left" Height="18" Margin="175,269,0,0" VerticalAlignment="Top" Width="452" Foreground="{x:Null}" Background="#FFEA2C2C"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="{Binding Value, ElementName=FontSlider}" VerticalAlignment="Top" Height="106" Width="790" Margin="6,165,0,0" TextAlignment="Center" FontFamily="Bebas Neue Bold"><Run Foreground="#FFEE2020" Text="STRESS"/><Run Text=" LEVEL"/></TextBlock>
+        -->
+
+
+    </Grid>
+</Page>
