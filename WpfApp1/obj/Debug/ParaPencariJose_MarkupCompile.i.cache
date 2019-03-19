@@ -1,7 +1,7 @@
 ﻿ParaPencariJose
 
 
-exe
+winexe
 C#
 .cs
 D:\Documents\GitHub\PetakUmpetAntahBerantah\WpfApp1\obj\Debug\
@@ -16,5 +16,5 @@ D:\Documents\GitHub\PetakUmpetAntahBerantah\WpfApp1\App.xaml
 151984215308
 ChooseOption.xaml;MainWindow.xaml;Player.xaml;Player2.xaml;PlayerGraph.xaml;SelectGraph.xaml;ShowGraph.xaml;Watcher.xaml;WatcherGraph.xaml;
 
-True
+False
 

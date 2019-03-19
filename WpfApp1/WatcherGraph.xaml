@@ -9,7 +9,6 @@
       Title="WatcherGraph">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-        <!--<zoomAndPan:ZoomAndPanControl Name="ZoomAndPanControl" Background="LightGray" MinimumZoomType="FitScreen">-->
         <Canvas x:Name="W_Canvas" Background="#FFE6E6E6" Width="10000" Height="500000">
             <Button x:Name="startQuery" Content="QUERY" Width="75" Canvas.Left="518" Canvas.Top="10" Click="querySolution" FontFamily="Bebas Neue Bold" IsEnabled="False"/>
             <TextBox x:Name="queryBox" Height="18" Canvas.Left="300" TextWrapping="Wrap" Text="query1.txt" Canvas.Top="10" Width="213" IsEnabled="False" />
@@ -18,6 +17,5 @@
             <Button x:Name="browseQuery" Content="BROWSE" Width="75" Canvas.Left="222" Canvas.Top="10" Click="browse" FontFamily="Bebas Neue Bold" IsEnabled="False"/>
 
         </Canvas>
-        <!--</zoomAndPan:ZoomAndPanControl>-->
     </ScrollViewer>
 </Page>

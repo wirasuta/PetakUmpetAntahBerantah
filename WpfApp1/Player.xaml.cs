@@ -23,44 +23,30 @@ namespace WpfApp1
     /// </summary>
     public partial class Player : Page
     {
-        //public string passingGraph;
-
-        /*public string getPasser
-        {
-            get{ return passingGraph; }
-            //set{ return passingGraph = "s";}
-        }*/
-
+        //Constructor for Player page
         public Player()
         {
             InitializeComponent();
         }
 
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        //Menyimpan value yang berada dalam textbox graphInput ke dalam file external
         private void inputGraph(object sender, RoutedEventArgs e)
         {
+            //Lokasi penyimpanan file graf: D:\Documents\GitHub\PetakUmpetAntahBerantah\WpfApp1\bin\Debug
             File.WriteAllText("D:\\Documents\\GitHub\\PetakUmpetAntahBerantah\\WpfApp1\\bin\\Debug\\graphInput.txt", graphInput.Text);
             string passingGraph = "graphInput.txt";
             Player2 p = new Player2(passingGraph);
             ((MainWindow)Application.Current.MainWindow).Content = p;
         }
 
+        //Kembali ke main menu (dimana pengguna memilih antara Watcher atau Player
         private void backToMain(object sender, RoutedEventArgs e)
         {
             ChooseOption ch = new ChooseOption();
             ((MainWindow)Application.Current.MainWindow).Content = ch;
         }
 
-        private void GraphChoose_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        //Menyimpan value yang berada pada textbox graphChoose yang berupa nama file graf
         private void inputExistingGraph(object sender, RoutedEventArgs e)
         {
             string passingGraph = graphChoose.Text;
@@ -68,6 +54,7 @@ namespace WpfApp1
             ((MainWindow)Application.Current.MainWindow).Content = p;
         }
 
+        //Membuka dialog open file ketika button BROWSE diklik
         private void browseExistingGraph(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();

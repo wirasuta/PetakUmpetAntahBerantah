@@ -33,17 +33,25 @@ namespace WpfApp1
 
         private DispatcherTimer timer;
 
+        //Ctor page WatcherGraph
         public WatcherGraph(string name)
         {
             graphFile = name;
             InitializeComponent();
+
+            //Menampilkan informasi graf dan query yang dipakai
+            //sekaligus menampilkan graf
             ShowTitle();
+
+            //Mengilustrasikan DFS
             ShowDFS();
         }
 
+        //Menampilkan informasi graf dan query yang digunakan
+        //beserta menggambarkan graf
         private void ShowTitle()
         {
-            //INFORMATION OF THE GRAPH
+            //Membuat objek textbox untuk menampilkan nama/lokasi graf
             TextBlock gFile = new TextBlock();
             gFile.Height = 50;
             gFile.Width = 200;
@@ -56,11 +64,14 @@ namespace WpfApp1
             gFile.Foreground = new SolidColorBrush(Colors.Red);
             W_Canvas.Children.Add(gFile);
 
-
+            //Membuat objek G1 yang berasal dari kelas Graph
             Graph G1 = new Graph(graphFile);
+
+            //Menentukan bobot setiap node dengan menggunakan DFS
             Solver.setDatangPergiY(G1);
             Solver.setAllX(G1);
 
+            //Membuat nNode yang berupa TextBlock. Digunakan untuk menampilkan informasi jumlah node
             TextBlock nNode = new TextBlock();
             nNode.Height = 50;
             nNode.Width = 200;
@@ -73,31 +84,32 @@ namespace WpfApp1
             nNode.Foreground = new SolidColorBrush(Colors.Red);
             W_Canvas.Children.Add(nNode);
 
+            //Membuat setiap node yang ada pada graf. Menggunakan objek ellipse
             for (int i = 1; i <= G1.getNodeCount(); i++)
             {
+                //Membuat objek berupa ellipse untuk setiap node
                 Ellipse graphNode = new Ellipse();
                 graphNode.Name = "node" + i;
                 graphNode.Stroke = System.Windows.Media.Brushes.Black;
                 graphNode.Fill = System.Windows.Media.Brushes.LightGray;
                 graphNode.Width = 30;
                 graphNode.Height = 30;
-
                 Canvas.SetLeft(graphNode, G1.getNode(i).getX()*5);
                 Canvas.SetTop(graphNode, G1.getNode(i).getY()*5);
 
-
+                //Memberikan nomor pada setiap node
                 TextBlock nodeID = new TextBlock();
                 nodeID.Height = 50;
                 nodeID.Width = 200;
                 nodeID.Text = i.ToString();
                 nodeID.FontSize = 12;
-                
                 Canvas.SetLeft(nodeID, G1.getNode(i).getX() * 5 + 8);
                 Canvas.SetTop(nodeID, G1.getNode(i).getY() * 5);
                 nNode.Foreground = new SolidColorBrush(Colors.Black);
 
-                
-
+                //Menggambarkan garis untuk setiap node-node yang bersisian menggunakan Line
+                //Mengecek apakah untuk setiap node terdapat node lain yang bertetanggaan
+                //jika ada, maka dibuat garis yang menghubungkan keduanya
                 if (G1.getNode(i).getNeighbours().Count != 0)
                 {
                     List<int> nodeNeighbor = G1.getNode(i).getNeighbours();
@@ -123,9 +135,11 @@ namespace WpfApp1
                 W_Canvas.Children.Add(nodeID);
                 Canvas.SetZIndex(nodeID, 2);
             }
+            //assign playerGraph dengan G1
             watcherGraph = G1;
         }
 
+        //Menampilkan animasi pembobotan setiap node menggunakan DFS
         private void ShowDFS()
         {
             time = 1;
@@ -185,6 +199,7 @@ namespace WpfApp1
 
         void traverseSolution(object sender, EventArgs e)
         {
+            //Membuat textblock yang menampilkan status query
             TextBlock status = new TextBlock();
             status.Height = 18;
             status.Width = 213;
@@ -211,7 +226,7 @@ namespace WpfApp1
                 }
                 if (watcherQuery[nQuery].Count != 0)
                 {
-                   
+                    //Jika Ferdinand bisa menemukan Jose, maka "YES" akan ditampilkan
                     int queryLine = nQuery + 1;
                     status.Text = "  STATUS: YES FOR QUERY #" + queryLine;
                     status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
@@ -236,6 +251,7 @@ namespace WpfApp1
                 }
                 else
                 {
+                    //Jika Ferdinand tidak bisa menemukan Jose, maka "NO" akan ditampilkan
                     int queryLine = nQuery + 1;
                     status.Text = "  STATUS: NO FOR QUERY #" + queryLine;
                     status.Foreground = new SolidColorBrush(Colors.DarkRed);
@@ -247,18 +263,21 @@ namespace WpfApp1
 
         }
 
+        //Kembali ke page Watcher
         private void backTo(object sender, RoutedEventArgs e)
         {
             Watcher p = new Watcher();
             ((MainWindow)Application.Current.MainWindow).Content = p;
         }
 
+        //Kembali ke page ChooseOption
         private void backToMainMenu(object sender, RoutedEventArgs e)
         {
             ChooseOption c = new ChooseOption();
             ((MainWindow)Application.Current.MainWindow).Content = c;
         }
 
+        //Membuka open file dialog ketika mengeklik tombol browse
         private void browse(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();

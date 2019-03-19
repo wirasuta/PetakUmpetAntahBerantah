@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using System.Windows.Forms;
-//using System.Drawing;
+
 
 namespace WpfApp1
 {
@@ -22,20 +21,23 @@ namespace WpfApp1
     /// </summary>
     public partial class Watcher : Page
     {
+        //Ctor untuk page Watcher
         public Watcher()
         {
             InitializeComponent();
         }
 
+        //Kembali ke page ChooseOption
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             ChooseOption choose1 = new ChooseOption();
             ((MainWindow)Application.Current.MainWindow).Content = choose1;
         }
 
+        //Browse file graf
         private void selectFile(object sender, RoutedEventArgs e)
         {
-            //InputBox.Visibility = System.Windows.Visibility.Visible;
+            //Membuat dan membuka open file dialog
             Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();
             di.DefaultExt = ".txt";
             Nullable<bool> result = di.ShowDialog();
@@ -48,33 +50,6 @@ namespace WpfApp1
 
         }
 
-        private void DisplayPopup(object sender, RoutedEventArgs e)
-        {
-            //myPopup.IsOpen = true;
-        }
-
-        private void YesButton_Click(object sender, RoutedEventArgs e)
-        {
-            // YesButton Clicked! Let's hide our InputBox and handle the input text.
-            InputBox.Visibility = System.Windows.Visibility.Collapsed;
-
-            // Do something with the Input
-            String input = InputTextBox.Text;
-            graphName.Clear();
-            graphName.AppendText(input);
-            graphName.Foreground = Brushes.Red;
-
-            //InputTextBox.Text = String.Empty;
-        }
-
-        private void NoButton_Click(object sender, RoutedEventArgs e)
-        {
-            // NoButton Clicked! Let's hide our InputBox.
-            InputBox.Visibility = System.Windows.Visibility.Collapsed;
-
-            // Clear InputBox.
-            InputTextBox.Text = String.Empty;
-        }
 
         private void W_ShowGraph(object sender, RoutedEventArgs e)
         {

@@ -23,6 +23,8 @@ namespace WpfApp1
         public ShowGraph()
         {
             InitializeComponent();
+
+            
             drawGraph();
         }
 
