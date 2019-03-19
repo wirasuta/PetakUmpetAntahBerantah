@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Para Pencari Jose" Height="450" Width="800">
     <Grid HorizontalAlignment="Right" Width="792" Height="419" VerticalAlignment="Top" Background="#FF151313">
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="120" FontFamily="Bebas Neue Bold" Margin="132,132,132,204" Foreground="#FF25FDB8">
             HELLO ABANG!

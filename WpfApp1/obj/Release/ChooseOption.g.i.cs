@@ -52,7 +52,7 @@ namespace WpfApp1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/chooseoption.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ParaPencariJose;component/chooseoption.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ChooseOption.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

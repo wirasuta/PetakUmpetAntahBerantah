@@ -52,7 +52,7 @@ namespace WpfApp1 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfApp1;component/selectgraph.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ParaPencariJose;component/selectgraph.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\SelectGraph.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

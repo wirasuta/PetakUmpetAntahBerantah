@@ -40,6 +40,7 @@
                 </StackPanel>
             </Border>
         </Grid>
-        
+        <Button x:Name="toMain" Click="toMainMenu" Content="MAIN" HorizontalAlignment="Left" Height="21" Margin="690,15,0,0" VerticalAlignment="Top" Width="85" FontFamily="Bebas Neue Bold" BorderBrush="{x:Null}" Foreground="#FFFF3232" Background="Black"/>
+
     </Grid>
 </Page>

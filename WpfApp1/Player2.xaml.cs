@@ -23,16 +23,20 @@ namespace WpfApp1
     /// </summary>
     public partial class Player2 : Page
     {
-        public Player2()
+        public string receivedGraph;
+        public Player2(string name)
         {
+            receivedGraph = name;
             InitializeComponent();
+            showSelectedGraph();
         }
 
         private void inputQuery(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText("C:\\Users\\x550\\source\\repos\\WpfApp1\\WpfApp1\\queryInput.txt", queryInput.Text);
-            ShowGraph s = new ShowGraph();
-            ((MainWindow)Application.Current.MainWindow).Content = s;
+            string passingQuery = "queryInput.txt";
+            File.WriteAllText("D:\\Documents\\GitHub\\PetakUmpetAntahBerantah\\WpfApp1\\bin\\Debug\\queryInput.txt", queryInput.Text);
+            PlayerGraph g = new PlayerGraph(receivedGraph, passingQuery);
+            ((MainWindow)Application.Current.MainWindow).Content = g;
         }
 
         private void bactToMain(object sender, RoutedEventArgs e)
@@ -45,6 +49,40 @@ namespace WpfApp1
         {
             Player p = new Player();
             ((MainWindow)Application.Current.MainWindow).Content = p;
+        }
+
+        private void showSelectedGraph()
+        {
+
+            TextBlock selectedGraph = new TextBlock();
+            selectedGraph.Height = 50;
+            selectedGraph.Width = 200;
+            selectedGraph.Text = "Showing Graph: " + receivedGraph;
+            selectedGraph.FontSize = 9;
+            Canvas.SetLeft(selectedGraph, 10);
+            Canvas.SetTop(selectedGraph, 10);
+            selectedGraph.Foreground = new SolidColorBrush(Colors.Red);
+            P_QueryCanvas.Children.Add(selectedGraph);
+        }
+
+        private void inputExistingQuery(object sender, RoutedEventArgs e)
+        {
+            string passingQuery = queryChoose.Text;
+            PlayerGraph g = new PlayerGraph(receivedGraph, passingQuery);
+            ((MainWindow)Application.Current.MainWindow).Content = g;
+        }
+
+        private void browseExistingQuery(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();
+            di.DefaultExt = ".txt";
+            Nullable<bool> result = di.ShowDialog();
+
+            if (result == true)
+            {
+                string fileName = di.FileName;
+                queryChoose.Text = fileName;
+            }
         }
     }
 }

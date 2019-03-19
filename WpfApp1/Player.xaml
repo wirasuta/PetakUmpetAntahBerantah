@@ -8,11 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Player">
 
-    <Grid Background="White">
-        <TextBox x:Name="graphInput" HorizontalAlignment="Left" Height="177" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Margin="138,135,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="240,74,0,0" TextWrapping="Wrap" Text="INPUT YOUR GRAPH" VerticalAlignment="Top" Width="337" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
-        <Button x:Name="P_Main" Content="MAIN" HorizontalAlignment="Center" Height="31" Margin="302,361,399,0" VerticalAlignment="Top" Width="99" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFEEEEEE" BorderBrush="{x:Null}" Click="backToMain" Background="#FFFF1E1E"/>
-        <Button x:Name="P_Next" Content="NEXT" HorizontalAlignment="Center" Height="31" Margin="430,361,271,0" VerticalAlignment="Top" Width="99" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputGraph"/>
+    <Grid Background="White" Height="419" Width="792">
+        <TextBox x:Name="graphInput" HorizontalAlignment="Left" Height="169" TextWrapping="Wrap" VerticalAlignment="Top" Width="517" Margin="138,64,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="237,14,0,0" TextWrapping="Wrap" Text="INPUT YOUR GRAPH" VerticalAlignment="Top" Width="327" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
+        <Button x:Name="P_Main" Content="MAIN" HorizontalAlignment="Center" Height="30" Margin="293,254,403,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFEEEEEE" BorderBrush="{x:Null}" Click="backToMain" Background="#FFFF1E1E"/>
+        <Button x:Name="P_Next" Content="NEXT" HorizontalAlignment="Center" Height="30" Margin="417,254,279,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputGraph"/>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="218,316,0,0" TextWrapping="Wrap" Text="OR CHOOSE FROM EXISTING FILE" VerticalAlignment="Top" Width="346" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
+        <TextBox x:Name="graphChoose" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="309" Margin="138,365,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontSize="22" Foreground="#FF686868" TextChanged="GraphChoose_TextChanged" Text="tes11.txt"/>
+        <Button x:Name="P_NextExisting" Click="inputExistingGraph" HorizontalAlignment="Center" Height="33" Margin="555,365,141,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Content="next" Cursor="Arrow"/>
+        <Button x:Name="P_Browse" Content="browse" HorizontalAlignment="Center" Height="33" Margin="452,365,244,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" Click="browseExistingGraph" Background="#FFFF1E1E"/>
 
         <!--<Slider Minimum="8" Maximum="96" x:Name="FontSlider" HorizontalAlignment="Left" Height="18" Margin="175,269,0,0" VerticalAlignment="Top" Width="452" Foreground="{x:Null}" Background="#FFEA2C2C"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="{Binding Value, ElementName=FontSlider}" VerticalAlignment="Top" Height="106" Width="790" Margin="6,165,0,0" TextAlignment="Center" FontFamily="Bebas Neue Bold"><Run Foreground="#FFEE2020" Text="STRESS"/><Run Text=" LEVEL"/></TextBlock>

@@ -23,15 +23,19 @@ namespace WpfApp1
     /// </summary>
     public partial class Player : Page
     {
+        //public string passingGraph;
+
+        /*public string getPasser
+        {
+            get{ return passingGraph; }
+            //set{ return passingGraph = "s";}
+        }*/
+
         public Player()
         {
             InitializeComponent();
         }
 
-    /*    private void ProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        } */
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -40,8 +44,9 @@ namespace WpfApp1
 
         private void inputGraph(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText("C:\\Users\\x550\\source\\repos\\WpfApp1\\WpfApp1\\graphInput.txt", graphInput.Text);
-            Player2 p = new Player2();
+            File.WriteAllText("D:\\Documents\\GitHub\\PetakUmpetAntahBerantah\\WpfApp1\\bin\\Debug\\graphInput.txt", graphInput.Text);
+            string passingGraph = "graphInput.txt";
+            Player2 p = new Player2(passingGraph);
             ((MainWindow)Application.Current.MainWindow).Content = p;
         }
 
@@ -49,6 +54,31 @@ namespace WpfApp1
         {
             ChooseOption ch = new ChooseOption();
             ((MainWindow)Application.Current.MainWindow).Content = ch;
+        }
+
+        private void GraphChoose_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void inputExistingGraph(object sender, RoutedEventArgs e)
+        {
+            string passingGraph = graphChoose.Text;
+            Player2 p = new Player2(passingGraph);
+            ((MainWindow)Application.Current.MainWindow).Content = p;
+        }
+
+        private void browseExistingGraph(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();
+            di.DefaultExt = ".txt";
+            Nullable<bool> result = di.ShowDialog();
+
+            if (result == true)
+            {
+                string fileName = di.FileName;
+                graphChoose.Text = fileName;
+            }
         }
     }
 }

@@ -35,7 +35,16 @@ namespace WpfApp1
 
         private void selectFile(object sender, RoutedEventArgs e)
         {
-            InputBox.Visibility = System.Windows.Visibility.Visible;
+            //InputBox.Visibility = System.Windows.Visibility.Visible;
+            Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();
+            di.DefaultExt = ".txt";
+            Nullable<bool> result = di.ShowDialog();
+
+            if(result == true)
+            {
+                string fileName = di.FileName;
+                graphName.Text = fileName;
+            }
 
         }
 
@@ -74,6 +83,12 @@ namespace WpfApp1
 
             ((MainWindow)Application.Current.MainWindow).Content = w1;
 
+        }
+
+        private void toMainMenu(object sender, RoutedEventArgs e)
+        {
+            ChooseOption c = new ChooseOption();
+            ((MainWindow)Application.Current.MainWindow).Content = c;
         }
     }
 }

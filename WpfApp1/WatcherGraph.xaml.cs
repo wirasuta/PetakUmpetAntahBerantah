@@ -90,7 +90,7 @@ namespace WpfApp1
                 nodeID.Height = 50;
                 nodeID.Width = 200;
                 nodeID.Text = i.ToString();
-                nodeID.FontSize = 20;
+                nodeID.FontSize = 12;
                 
                 Canvas.SetLeft(nodeID, G1.getNode(i).getX() * 5 + 8);
                 Canvas.SetTop(nodeID, G1.getNode(i).getY() * 5);
@@ -140,6 +140,9 @@ namespace WpfApp1
             if (time > 2 * watcherGraph.getNodeCount())
             {
                 timer.Stop();
+                queryBox.IsEnabled = true;
+                startQuery.IsEnabled = true;
+                browseQuery.IsEnabled = true;
                 timer.Tick -= DFSDatangPergi;
             }
             else
@@ -185,12 +188,10 @@ namespace WpfApp1
             TextBlock status = new TextBlock();
             status.Height = 18;
             status.Width = 213;
-            //cek.Text = watcherQuery[i].Count().ToString();
             status.FontSize = 10;
-            Canvas.SetLeft(status, 400);
+            Canvas.SetLeft(status, 300);
             Canvas.SetTop(status, 30);
             status.Foreground = new SolidColorBrush(Colors.LightGray);
-            //status.Foreground = 
             W_Canvas.Children.Add(status);
 
             if (nQuery == watcherQuery.Length)
@@ -246,5 +247,29 @@ namespace WpfApp1
 
         }
 
+        private void backTo(object sender, RoutedEventArgs e)
+        {
+            Watcher p = new Watcher();
+            ((MainWindow)Application.Current.MainWindow).Content = p;
+        }
+
+        private void backToMainMenu(object sender, RoutedEventArgs e)
+        {
+            ChooseOption c = new ChooseOption();
+            ((MainWindow)Application.Current.MainWindow).Content = c;
+        }
+
+        private void browse(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog di = new Microsoft.Win32.OpenFileDialog();
+            di.DefaultExt = ".txt";
+            Nullable<bool> result = di.ShowDialog();
+
+            if (result == true)
+            {
+                string fileName = di.FileName;
+                queryBox.Text = fileName;
+            }
+        }
     }
 }

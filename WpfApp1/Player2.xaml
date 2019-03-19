@@ -7,13 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Player2">
+    <Canvas x:Name="P_QueryCanvas" Background="#FFE6E6E6" Width="792" Height="419">
+        <Grid Background="White" x:Name="queryGrid" Height="419" Width="792">
+            <TextBox x:Name="queryInput" HorizontalAlignment="Left" Height="169" TextWrapping="Wrap" VerticalAlignment="Top" Width="517" Margin="138,64,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
+            <TextBlock HorizontalAlignment="Left" Height="48" Margin="237,14,0,0" TextWrapping="Wrap" Text="INPUT YOUR query" VerticalAlignment="Top" Width="327" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
+            <Button x:Name="P2_Ok" Content="OK" HorizontalAlignment="Center" Height="30" Margin="473,252,222,0" VerticalAlignment="Top" Width="97" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputQuery"/>
+            <Button x:Name="P2_Back" Content="Back" HorizontalAlignment="Center" Height="30" Margin="358,252,338,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="backToInputGraph"/>
+            <Button x:Name="P2_Main" Content="MAIN" HorizontalAlignment="Center" Height="30" Margin="243,252,453,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" Click="bactToMain" Background="#FFFF1E1E"/>
+            <TextBlock HorizontalAlignment="Left" Height="48" Margin="218,316,0,0" TextWrapping="Wrap" Text="OR CHOOSE FROM EXISTING FILE" VerticalAlignment="Top" Width="346" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
+            <TextBox x:Name="queryChoose" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Margin="138,365,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontSize="22" Foreground="#FF686868" Text="query1.txt"/>
+            <Button x:Name="P_OkExisting" Content="OK" HorizontalAlignment="Center" Height="33" Margin="555,365,141,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputExistingQuery"/>
+            <Button x:Name="P_Browse" Content="browse" HorizontalAlignment="Center" Height="33" Margin="452,365,244,0" VerticalAlignment="Top" Width="96" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" Click="browseExistingQuery" Background="#FFFF1E1E"/>
 
-    <Grid Background="White">
-        <TextBox x:Name="queryInput" HorizontalAlignment="Left" Height="177" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" Margin="138,135,0,0" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Background="#FFEEEEEE" SelectionBrush="{x:Null}" BorderBrush="{x:Null}"/>
-        <TextBlock HorizontalAlignment="Left" Height="50" Margin="240,74,0,0" TextWrapping="Wrap" Text="INPUT YOUR QUERY" VerticalAlignment="Top" Width="337" TextAlignment="Center" Foreground="#FFFF1E1E" FontFamily="Bebas Neue Bold" FontSize="36"/>
-        <Button x:Name="P2_Ok" Content="OK" HorizontalAlignment="Center" Height="31" Margin="476,364,225,0" VerticalAlignment="Top" Width="99" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="inputQuery"/>
-        <Button x:Name="P2_Back" Content="Back" HorizontalAlignment="Center" Height="31" Margin="358,364,344,0" VerticalAlignment="Top" Width="98" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFFF1E1E" BorderBrush="{x:Null}" Click="backToInputGraph"/>
-        <Button x:Name="P2_Main" Content="MAIN" HorizontalAlignment="Center" Height="31" Margin="240,364,462,0" VerticalAlignment="Top" Width="98" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" Click="bactToMain" Background="#FFFF1E1E"/>
-
-    </Grid>
+        </Grid>
+    </Canvas>
 </Page>
