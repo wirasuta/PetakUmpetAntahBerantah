@@ -3,9 +3,17 @@ using System.Linq;
 
 namespace PetakUmpetAntahBerantah{
     public static class Solver {
+        /*
+            Kelas static solver yang memiliki method:
+            - setDatangPergiY : menetapkan nilai kedatangan, kepergian, dan posisi y untuk setiap node
+            - setAllX : menetapkan posisi X untuk setiap node
+            - solve : menyelesaikan satu query
+            - solveFile : menyelesaikan semua query dari file dengan memanggil method solve
+        */
         public static void setDatangPergiY(Graph G){
+            //Nilai jarak y antar node
             const int offsety = 10;
-
+            //Inisialisasi variabel lokal
             Stack<int> dfs = new Stack<int>();
             int time = 0;
             int level = 0;
@@ -16,6 +24,10 @@ namespace PetakUmpetAntahBerantah{
                 visited[i] = false;
                 done[i] = false;
             }
+            //Penelusuran graf secara DFS untuk menentukan posisi Y, waktu kedatangan (pertama kali proses node tersebut)
+            //dan kepergian (ketika node tersebut dan seluruh anaknya selesai diproses).
+            //Implementasi DFS dengan menggunakan stack untuk 
+            //menghindari error stack overflow karena rekursi dalam
             dfs.Push(1);
             while (!(dfs.Count == 0)){
                 int top = dfs.Peek();
@@ -43,8 +55,9 @@ namespace PetakUmpetAntahBerantah{
         }
 
         public static void setAllX(Graph G){
+            //Nilai jarak x antar node
             const int offsetx = 10;
-
+            //Inisialisasi variabel lokal
             Queue<int> nodes = new Queue<int>();
             int x = 0;
             int level = 0;
@@ -52,7 +65,7 @@ namespace PetakUmpetAntahBerantah{
             bool[] visited = new bool[n+1];
             for (int i = 0; i <= n; i++)
                 visited[i] = false;
-
+            //Penelusuran graf untuk penentuan posisi X
             //Untuk node yang terhubung dengan istana
             nodes.Enqueue(1);
             while(!(nodes.Count == 0)){
@@ -71,7 +84,6 @@ namespace PetakUmpetAntahBerantah{
                         nodes.Enqueue(vert);
                 }
             }
-
             //Untuk node yang tidak terhubung dengan istana
             x = 10;
             for (int i=0; i<=n; i++){
@@ -96,7 +108,12 @@ namespace PetakUmpetAntahBerantah{
             int timeFerdiant = g.getNode(posFerdiant).getDatang();
             int timeJose = g.getNode(a).getDatang();
             List<int> path = new List<int>();
+            // Penentuan apakah terdapat jalan menuju posisi Jose dari posisi Ferdiant
+            // Jika nilai i = 0 (mendekati istana), maka permasalahan disederhanakan menjadi "Apakah node b merupakan anak dari node a"
+            // Node b merupakan anak dari node a jika waktu datang b setelah waktu datang a,
+            // dan waktu pergi a setelah waktu pergi b
             if ((g.getNode(a).getDatang() < g.getNode(b).getDatang()) && (g.getNode(a).getPergi() > g.getNode(b).getPergi())){
+                // Penentuan jalan menuju posisi Jose dilakukan dengan mengikuti waktu datang secara menurun
                 while (timeFerdiant != timeJose){
                     path.Add(posFerdiant);
                     List<int> connectedVert = g.getNode(posFerdiant).getNeighbours();
@@ -124,6 +141,7 @@ namespace PetakUmpetAntahBerantah{
                 ret[i] = new List<int>();
             }
             i = 0;
+            // Pemanggilan solve untuk setiap baris query
             foreach (string line in lines.Skip(1).ToArray()){
                 string[] iab = line.Split(' ');
                 ret[i++] = solve(G, int.Parse(iab[0]),int.Parse(iab[1]),int.Parse(iab[2]));
