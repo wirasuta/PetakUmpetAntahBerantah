@@ -40,8 +40,8 @@ namespace WpfApp1
         private void inputQuery(object sender, RoutedEventArgs e)
         {
             //Lokasi penyimpanan file graf: D:\Documents\GitHub\PetakUmpetAntahBerantah\WpfApp1\bin\Debug
-            File.WriteAllText("D:\\Documents\\GitHub\\PetakUmpetAntahBerantah\\WpfApp1\\bin\\Debug\\queryInput.txt", queryInput.Text);
-            string passingQuery = "queryInput.txt";
+            File.WriteAllText("D:\\Desktop\\queryInput.txt", queryInput.Text);
+            string passingQuery = "D:\\Desktop\\queryInput.txt";
 
             //Membuat objek page PlayerGraph
             PlayerGraph g = new PlayerGraph(receivedGraph, passingQuery);

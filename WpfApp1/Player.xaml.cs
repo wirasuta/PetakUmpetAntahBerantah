@@ -33,8 +33,8 @@ namespace WpfApp1
         private void inputGraph(object sender, RoutedEventArgs e)
         {
             //Lokasi penyimpanan file graf: D:\Documents\GitHub\PetakUmpetAntahBerantah\WpfApp1\bin\Debug
-            File.WriteAllText("D:\\Documents\\GitHub\\PetakUmpetAntahBerantah\\WpfApp1\\bin\\Debug\\graphInput.txt", graphInput.Text);
-            string passingGraph = "graphInput.txt";
+            File.WriteAllText("D:\\Desktop\\graphInput.txt", graphInput.Text);
+            string passingGraph = "D:\\Desktop\\graphInput.txt";
             Player2 p = new Player2(passingGraph);
             ((MainWindow)Application.Current.MainWindow).Content = p;
         }
