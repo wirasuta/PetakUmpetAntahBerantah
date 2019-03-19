@@ -9,11 +9,11 @@
       Title="WatcherGraph">
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
-        <Canvas x:Name="W_Canvas" Background="#FFE6E6E6" Width="10000" Height="500000">
+        <Canvas x:Name="W_Canvas" Background="LightGray" Width="10000" Height="500000">
             <Button x:Name="startQuery" Content="QUERY" Width="75" Canvas.Left="518" Canvas.Top="10" Click="querySolution" FontFamily="Bebas Neue Bold" IsEnabled="False"/>
             <TextBox x:Name="queryBox" Height="18" Canvas.Left="300" TextWrapping="Wrap" Text="query1.txt" Canvas.Top="10" Width="213" IsEnabled="False" />
-            <Button x:Name="back" Content="BACK" Width="75" Canvas.Left="598" Canvas.Top="10" Click="backTo" FontFamily="Bebas Neue Bold" Background="#FFFF1E1E" Foreground="#FFE6E6E6"/>
-            <Button x:Name="backToMain" Content="MAIN" Width="75" Canvas.Left="678" Canvas.Top="10" Click="backToMainMenu" FontFamily="Bebas Neue Bold" Background="#FF171717" Foreground="#FFFF1E1E"/>
+            <Button x:Name="back" Content="BACK" Width="75" Canvas.Left="598" Canvas.Top="10" Click="backTo" FontFamily="Bebas Neue Bold" Background="#FFFF1E1E" Foreground="#FF151313" BorderBrush="#FF151313"/>
+            <Button x:Name="backToMain" Content="MAIN" Width="75" Canvas.Left="678" Canvas.Top="10" Click="backToMainMenu" FontFamily="Bebas Neue Bold" Background="Black" Foreground="#FF25FDB8" BorderBrush="#FF25FDB8"/>
             <Button x:Name="browseQuery" Content="BROWSE" Width="75" Canvas.Left="222" Canvas.Top="10" Click="browse" FontFamily="Bebas Neue Bold" IsEnabled="False"/>
 
         </Canvas>

@@ -229,7 +229,8 @@ namespace WpfApp1
                     //Jika Ferdinand bisa menemukan Jose, maka "YES" akan ditampilkan
                     int queryLine = nQuery + 1;
                     status.Text = "  STATUS: YES FOR QUERY #" + queryLine;
-                    status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
+                    //status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
+                    status.Background = System.Windows.Media.Brushes.LightGray;
                     status.Foreground = new SolidColorBrush(Colors.Green);
                     foreach (Ellipse el in W_Canvas.Children.OfType<Ellipse>())
                     {
@@ -253,7 +254,7 @@ namespace WpfApp1
                     int queryLine = nQuery + 1;
                     status.Text = "  STATUS: NO FOR QUERY #" + queryLine;
                     status.Foreground = new SolidColorBrush(Colors.DarkRed);
-                    status.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFE6E6E6"));
+                    status.Background = System.Windows.Media.Brushes.LightGray;
                     nQuery++;
                 }
                 

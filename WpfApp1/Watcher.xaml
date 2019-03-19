@@ -8,15 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Watcher">
 
-    <Grid Background="White">
+    <Grid Background="#FF151313">
         <!--<StackPanel>-->
         <!--
         <Button Content="M  a i n" HorizontalAlignment="Left" Height="35" Margin="344,410,0,0" VerticalAlignment="Top" Width="100" Click="BackToMain" BorderBrush="{x:Null}" Background="#FFFF3232" FontFamily="Bebas Neue Bold" FontSize="24" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="88" Width="800" FontFamily="Bebas Neue Bold" FontSize="72" TextAlignment="Center" Margin="0,329,0,0"><Run Text="UNDER "/><Run Foreground="#FFEA2C2C" Text="CONSTRUCTION"/></TextBlock>-->
-        <Button Content="choose your graph" HorizontalAlignment="Left" Height="31" Margin="285,264,0,0" VerticalAlignment="Top" Width="215" Click="selectFile" FontFamily="Bebas Neue Bold" FontSize="20" BorderBrush="{x:Null}" Foreground="#FFFF3232" Background="Black"/>
-        <TextBox x:Name="graphName" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" Text="tesPohon.txt" VerticalAlignment="Top" Width="378" Margin="209,199,0,0" FontSize="24" TextAlignment="Center" SelectionBrush="{x:Null}" Foreground="#FF9C9C9C" BorderBrush="#FFFF3232"/>
+        <Button Content="choose your graph" HorizontalAlignment="Left" Height="31" Margin="285,264,0,0" VerticalAlignment="Top" Width="215" Click="selectFile" FontFamily="Bebas Neue Bold" FontSize="20" BorderBrush="#FF25FDB8" Foreground="#FF151313" Background="#FF25FDB8"/>
+        <TextBox x:Name="graphName" BorderThickness="3" HorizontalAlignment="Left" Height="41" TextWrapping="Wrap" Text="tesPohon.txt" VerticalAlignment="Top" Width="378" Margin="209,199,0,0" FontSize="24" TextAlignment="Center" SelectionBrush="{x:Null}" Foreground="#FFEA2A2A" BorderBrush="#FFEA2A2A" Background="#FF151313"/>
         <Button Content="OK" HorizontalAlignment="Left" Height="31" Margin="285,303,0,0" VerticalAlignment="Top" Width="215" Click="W_ShowGraph" FontFamily="Bebas Neue Bold" FontSize="20" BorderBrush="{x:Null}" Foreground="#FF060606" Background="#FFFF3232"/>
-        <Button x:Name="toMain" Click="toMainMenu" Content="MAIN" HorizontalAlignment="Left" Height="21" Margin="690,15,0,0" VerticalAlignment="Top" Width="85" FontFamily="Bebas Neue Bold" BorderBrush="{x:Null}" Foreground="#FFFF3232" Background="Black"/>
+        <Button x:Name="toMain" Click="toMainMenu" Content="MAIN" HorizontalAlignment="Left" Height="21" Margin="690,15,0,0" VerticalAlignment="Top" Width="85" FontFamily="Bebas Neue Bold" BorderBrush="#FF25FDB8" Foreground="#FF25FDB8" Background="{x:Null}"/>
 
     </Grid>
 </Page>

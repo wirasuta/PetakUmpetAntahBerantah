@@ -11,8 +11,8 @@
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Canvas x:Name="P_Canvas" Background="#FFE6E6E6" Width="10000" Height="500000">
             <Button x:Name="startQuery" Content="QUERY" Width="75" Canvas.Left="518" Canvas.Top="10" Click="querySolution" FontFamily="Bebas Neue Bold" IsEnabled="False"/>
-            <Button x:Name="back" Content="BACK" Width="75" Canvas.Left="598" Canvas.Top="10" Click="backTo" FontFamily="Bebas Neue Bold" Background="#FFFF1E1E" Foreground="#FFE6E6E6"/>
-            <Button x:Name="backToMain" Content="MAIN" Width="75" Canvas.Left="678" Canvas.Top="10" Click="backToMainMenu" FontFamily="Bebas Neue Bold" Background="#FF171717" Foreground="#FFFF1E1E"/>
+            <Button x:Name="back" Content="BACK" Width="75" Canvas.Left="598" Canvas.Top="10" Click="backTo" FontFamily="Bebas Neue Bold" Background="#FFFFDF16" Foreground="#FF151313" BorderBrush="#FF151313"/>
+            <Button x:Name="backToMain" Content="MAIN" Width="75" Canvas.Left="678" Canvas.Top="10" Click="backToMainMenu" FontFamily="Bebas Neue Bold" Background="#FF151313" Foreground="#FF25FDB8"/>
 
         </Canvas>
     </ScrollViewer>

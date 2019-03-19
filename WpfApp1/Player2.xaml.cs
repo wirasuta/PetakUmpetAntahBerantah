@@ -74,7 +74,7 @@ namespace WpfApp1
             selectedGraph.FontSize = 9;
             Canvas.SetLeft(selectedGraph, 10);
             Canvas.SetTop(selectedGraph, 10);
-            selectedGraph.Foreground = new SolidColorBrush(Colors.Red);
+            selectedGraph.Foreground = new SolidColorBrush(Colors.Yellow);
 
             //Menambahkan textbox selectedGraph ke canvas
             P_QueryCanvas.Children.Add(selectedGraph);
