@@ -23,14 +23,6 @@ namespace WpfApp1
     /// </summary>
     public partial class Player : Page
     {
-        //public string passingGraph;
-
-        /*public string getPasser
-        {
-            get{ return passingGraph; }
-            //set{ return passingGraph = "s";}
-        }*/
-
         public Player()
         {
             InitializeComponent();

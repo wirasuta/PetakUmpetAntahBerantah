@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace PetakUmpetAntahBerantah{
     class Program{
+        /*
+            Kelas program yang digunakan untuk testing backend
+        */
         public static void printPath(List<int> path){
             if (path.Count > 0){
                 path.ForEach(v => {

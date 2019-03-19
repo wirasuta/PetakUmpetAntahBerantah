@@ -39,7 +39,6 @@ namespace WpfApp1
             showTitle();
             drawGraph();
             ShowDFS();
-            //startQuery.IsEnabled = true;
         }
 
         private void showTitle()
@@ -182,8 +181,6 @@ namespace WpfApp1
 
         private void querySolution(object sender, RoutedEventArgs e)
         {
-            //queryFilePlayer = queryBox.Text;
-
             playerQuery = Solver.solveFile(playerGraph, queryFilePlayer);
             nQueryPlayer = 0;
             nNodePlayer = 0;
@@ -197,12 +194,10 @@ namespace WpfApp1
             TextBlock status = new TextBlock();
             status.Height = 18;
             status.Width = 150;
-            //cek.Text = watcherQuery[i].Count().ToString();
             status.FontSize = 10;
             Canvas.SetLeft(status, 300);
             Canvas.SetTop(status, 10);
             status.Foreground = new SolidColorBrush(Colors.LightGray);
-            //status.Foreground = 
             P_Canvas.Children.Add(status);
 
             if (nQueryPlayer == playerQuery.Length)
@@ -243,8 +238,6 @@ namespace WpfApp1
                         nNodePlayer = 0;
                         nQueryPlayer++;
                     }
-                    //status.Text = String.Empty;
-
                 }
                 else
                 {

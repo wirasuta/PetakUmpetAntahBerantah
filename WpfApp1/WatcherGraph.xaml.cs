@@ -231,8 +231,6 @@ namespace WpfApp1
                         nNode = 0;
                         nQuery++;
                     }
-                    //status.Text = String.Empty;
-
                 }
                 else
                 {
